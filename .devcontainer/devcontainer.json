@@ -6,7 +6,7 @@
       "dockerfile": "Dockerfile",
       "context": ".."
     },
-    "forwardPorts": [8000],
+    "forwardPorts": [80],
     "postCreateCommand": "pip install -r requirements.txt",
     "remoteUser": "root",
     "mounts": [
