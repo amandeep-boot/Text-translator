@@ -3,7 +3,6 @@ from pydantic import BaseModel
 from dotenv import load_dotenv
 import os
 from groq import Groq
-import json
 
 # Load environment variables
 load_dotenv()
@@ -54,8 +53,8 @@ async def translate(data: Schema):
         # Extract translated text
         translated_text = completion.choices[0].message.content.strip() if completion.choices else ""
 
-        json_response = json.loads(translated_text)  # parse string to JSON object
-        return json_response
+       
+        return translated_text
 
     except Exception as e:
         raise HTTPException(status_code=500, detail="Translation failed. Please try again.")
